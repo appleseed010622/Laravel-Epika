@@ -15,7 +15,13 @@ header {
 header img.logo {
     height:100%;
     width:auto;
+    margin-left: 20px;
 }
+
+.low {
+    margin-top: 30px;    
+}
+
 
 footer {
     background-color: #0090FF;
@@ -246,10 +252,11 @@ select {
 }
 
 .search_btn {
-    background-color: #F8ED43;
+    background-color: #fff;
     border: none;
     padding-inline: 12px;
     height: 100%;
+    border-radius: 20px;
 }
 
 .search_btn:hover{

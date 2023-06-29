@@ -16,7 +16,7 @@
         @yield('header')
         <div class="logo1">
             <a href="/">
-                <img src="{{asset('/assess/img/logo_first.png')}}" alt=""  class="logo">
+                @yield('logo')                
             </a>
         </div>  
     </header>

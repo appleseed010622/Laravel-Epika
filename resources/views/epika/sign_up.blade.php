@@ -6,10 +6,10 @@
 
 
 
-
 @section('logo')
-<img src="{{asset('/assess/img/logo_first.png')}}" alt=""  class="logo">
+<img src="{{asset('/assess/img/logo.png')}}" alt=""  class="logo low">
 @endsection
+
 
 @section('main')
 <div class="sign_up_page">
@@ -18,7 +18,7 @@
         <div class="title">
             <h1>新 規 登 録</h1>
         </div>
-        <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('epikas.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="main">
                 <div class="one_input right_match">

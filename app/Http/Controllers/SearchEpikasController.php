@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SignUser;
+use App\Models\EpikaUser;
 use Illuminate\Http\Request;
 
-class SearchController extends Controller
+class SearchEpikasController extends Controller
 {
     public function index()
     {        
-        $users = SignUser::paginate(10);
+        $epikas = EpikaUser::paginate(10);
 
-        return view('list', ['users' => $users]);
+
+
+        return view('epika.list', ['epikas' => $epikas]);
     }
 
     public function search(Request $request)
@@ -20,7 +22,7 @@ class SearchController extends Controller
         $birth = $request->input('birth_find');
         $construction = $request->input('construction_find');
 
-        $query = SignUser::query();
+        $query = EpikaUser::query();
 
         if (!empty($full_name)) {
             $query->where('full_name', 'LIKE', '%' . $full_name . '%');
@@ -34,10 +36,10 @@ class SearchController extends Controller
             $query->whereDate('construction', $construction);
         }
 
-        $users = $query->paginate(10);
+        $epikas = $query->paginate(10);
 
         // Store the input values in the session
         
-        return view('list', ['users' => $users]);
+        return view('/epika/list', ['epikas' => $epikas]);
         }
 }

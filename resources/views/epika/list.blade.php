@@ -10,16 +10,15 @@
 @endsection
 
 
-
 @section('logo')
-<img src="{{asset('/assess/img/logo_first.png')}}" alt=""  class="logo">
+<img src="{{asset('/assess/img/logo.png')}}" alt=""  class="logo low">
 @endsection
 
 
 @section('main')
     <div class="list_total">
 
-        <form action="{{ route('users.search') }}" method="get">
+        <form action="../epikas/search" method="get">
             <div class="find">
                 <div class="list_container find_list">
                     <div>
@@ -40,7 +39,7 @@
         </form>
         <div class="list_container">
             <div class=" page_show">                
-                {{ $users->total() }} 件中 {{ $users->firstItem() }} ~ {{ $users->lastItem() }}件を表示
+                {{ $epikas->total() }} 件中 {{ $epikas->firstItem() }} ~ {{ $epikas->lastItem() }}件を表示
             </div>
         </div>
         <table class="table list_container">
@@ -53,9 +52,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $key => $post)
+                @foreach ($epikas as $key => $post)
                     <tr>
-                        <td><a href="{{ route('users.show', $post->id) }}">{{ $key + 1}}</a></td>
+                        <td><a href="{{ route('epikas.show', $post->id) }}">{{ $key + 1}}</a></td>
                         <td>{{ $post->full_name}}</td>
                         <td>{{ $post->birth }}</td>
                         <td>{{ $post->construction }}</td>
@@ -64,16 +63,16 @@
             </tbody>
         </table>
         <div class="pagination d-flex justify-content-center ">
-            @if ($users->currentPage() > 1)
-                <a href="{{ $users->appends(request()->except('page'))->previousPageUrl() }}">&laquo; 前</a>
+            @if ($epikas->currentPage() > 1)
+                <a href="{{ $epikas->appends(request()->except('page'))->previousPageUrl() }}">&laquo; 前</a>
             @endif
 
-            @for ($i = 1; $i <= $users->lastPage(); $i++)
-                <a class="{{ ($users->currentPage() == $i) ? ' active' : '' }}" href="{{ $users->appends(request()->except('page'))->url($i) }}">{{ $i }}</a>
+            @for ($i = 1; $i <= $epikas->lastPage(); $i++)
+                <a class="{{ ($epikas->currentPage() == $i) ? ' active' : '' }}" href="{{ $epikas->appends(request()->except('page'))->url($i) }}">{{ $i }}</a>
             @endfor
 
-            @if ($users->currentPage() < $users->lastPage())
-                <a href="{{ $users->appends(request()->except('page'))->nextPageUrl() }}">次 &raquo;</a>
+            @if ($epikas->currentPage() < $epikas->lastPage())
+                <a href="{{ $epikas->appends(request()->except('page'))->nextPageUrl() }}">次 &raquo;</a>
             @endif
         </div>
         

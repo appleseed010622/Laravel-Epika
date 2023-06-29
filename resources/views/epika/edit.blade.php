@@ -3,8 +3,9 @@
 
 
 @section('logo')
-<img src="{{asset('/assess/img/logo_first.png')}}" alt=""  class="logo">
+<img src="{{asset('/assess/img/logo.png')}}" alt=""  class="logo low">
 @endsection
+
 
 
 @section('main')
@@ -94,7 +95,7 @@
                     </div>
                     <div>        
                         <button type="submit"><img src="{{asset('/assess/img/Ok.png')}}" alt=""></button>
-                        <a href="/list"><img src="{{asset('/assess/img/cancel.png')}}" alt="" class="link"></a>
+                        <a href="/epika/list"><img src="{{asset('/assess/img/cancel.png')}}" alt="" class="link"></a>
                     </div>
                     </div>
                     

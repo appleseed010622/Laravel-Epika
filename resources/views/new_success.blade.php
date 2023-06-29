@@ -14,7 +14,7 @@
                 <img src="{{asset('/assess/img/success_mark.png')}}" alt="" class="success_mark">
                 <p class="success_title"><b>Success</b></p>
                 <p class="description_msg">正確に登録されました。</p>
-                <button type="button" onclick="location.href='/list'">O K</button>
+                <button type="button" onclick="location.href='/'">O K</button>
             </div>           
         </div>
     </div>

@@ -4,7 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\EditController;
+use App\Http\Controllers\UserEpikasController;
+use App\Http\Controllers\SearchEpikasController;
+use App\Http\Controllers\EditEpikasController;
 use App\Models\SignUser;
+use App\Models\EpikaUser;
 
 
 /*
@@ -45,4 +49,35 @@ Route::post('/update/{id}', [EditController::class, 'update'])->name('update');
 
 Route::get('/new_success', function () {
     return view('new_success');
+});
+
+
+
+
+
+
+// ////////////////////////////epika///////////////////////////
+Route::post('/epikas', [UserEpikasController::class, 'store'])->name('epikas.store');
+Route::get('/epikas',  [UserEpikasController::class, 'index'])->name('epikas.index');
+
+Route::get('/epikas/search', [SearchEpikasController::class, 'search'])->name('epikas.search');
+
+
+Route::get('/epika_edit/{id}', [EditEpikasController::class, 'edit'])->name('epika_edit');
+
+Route::get('/epikas/{id}', function ($id) {
+    $post = EpikaUser::findOrFail($id);
+    return view('/epika/detail', ['epika' => $post]);
+  })->name('epikas.show');
+
+
+  Route::post('/epika_update/{id}', [EditEpikasController::class, 'update'])->name('update');
+
+Route::get('/epika/sign_up', function () {
+    return view('epika.sign_up');
+});
+Route::get('/epika/list', [SearchEpikasController::class, 'index'])->name('epikas.search');
+
+Route::get('/epika/detail', function () {
+    return view('epika.detail');
 });

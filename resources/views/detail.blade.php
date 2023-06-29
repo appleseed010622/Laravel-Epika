@@ -1,6 +1,10 @@
 @extends('layout.main_style')
 @section('title', 'ditail')
 
+@section('logo')
+<img src="{{asset('/assess/img/logo_first.png')}}" alt=""  class="logo">
+@endsection
+
 @section('main')
         <div class="detail_page">                                                       
             <div class="slideshow-container">
